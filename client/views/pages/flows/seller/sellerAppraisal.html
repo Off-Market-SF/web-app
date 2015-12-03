@@ -1,0 +1,47 @@
+<template name="sellerAppraisal">
+	<div class="short-page-background">
+		<div class="ui container">
+			<br><br>
+			{{> breadcrumbs}}
+			<br><br>
+			<div class="ui large header">Your Appraisal</div>
+			<p>Based on our comparable sales analysis one of our buyers
+			is willing to offer you between <strong>{{lowAppraisal averagePrice}}</strong> and
+			<strong>{{highAppraisal averagePrice}}</strong>, subject to in-person walk-through,
+			inspection and appraisal</p>
+			<br>
+			<table class="ui celled striped table">
+				<thead>
+					<tr>
+					  <th>Address</th>
+					  <th>Bedrooms</th>
+					  <th>Bathroom</th>
+					  <th>Sqft</th>
+					  <th>Price</th>
+					  <th>Last Sold</th>
+					  <th>$ / Sqft</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each homeComps}}
+						{{> homeCompRow}}
+					{{/each}}
+				</tbody>
+				<tfoot>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th><b>Average</b></th>
+						<th><b>${{averagePrice}}</b></th>
+					</tr>
+				</tfoot>
+			</table>
+			<br><br>
+			<div class="huge ui button" id="tell-me-more">THIS PRICE IS ATTRACTIVE, TELL ME MORE</div><br><br>
+			<a id="sell-higher">I would only sell for a higher price</a>
+		</div>
+	</div>
+</template>

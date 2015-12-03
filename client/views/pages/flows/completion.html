@@ -1,0 +1,31 @@
+<template name="completion">
+	<div class="short-page-background">
+		<div class="ui container">
+			<br><br>
+			<h2 class="ui center aligned icon header">
+	  			<i class="circular idea icon"></i>
+				<div class="content">{{thanksText}}</div>
+	  			<div class="sub header">{{thanksSubText}}</div>
+			</h2>
+			<br><br>
+			{{#if isSellerFlow}}
+				<form class="ui form" id="email-form">
+					<h4 class="ui header">
+						<div class="content">Invite a Friend:</div>
+						<div class="sub header">Know of anyone thinking of selling their home? Let them know about Off-Market-SF and we'll work hard to get them a great price too.</div>
+					</h4>
+					<div class="field">
+						<input type="text" id="email-addresses" placeholder="Enter email addresses, separated by commas">
+						<span>WE WILL ONLY CONTACT THEM ONCE, AND WILL NOT SHARE THEIR INFORMATION WITH ANY OTHER PARTY</span>
+					</div>
+					<div class="large ui submit button" id="submit-button">INVITE</div>
+					<div class="ui success message">
+						<div class="header">Great!</div>
+						<p>We'll be in touch with them soon!</p>
+					</div>
+					<br><br>
+				</form>
+			{{/if}}
+		</div>
+	</div>
+</template>

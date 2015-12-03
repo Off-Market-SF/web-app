@@ -1,0 +1,16 @@
+<template name="layoutFront">
+  {{#if isFlows}}
+  	{{> headerFlows}}
+  {{else}}
+  	{{> headerFront}}
+  {{/if}}
+  <div class="main-background">
+    {{> sAlert}}
+	  {{> yield}}
+	  {{#if isFlows}}
+		  {{> footerFlows}}
+	  {{else}}
+		  {{> footerFront}}
+	  {{/if}}
+  </div>
+</template>

@@ -1,0 +1,69 @@
+<template name="sellerAccount">
+	<div class="short-page-background">
+		<div class="ui container">
+			<br><br>
+			{{> breadcrumbs}}
+			<br><br>
+			<form class="ui form" id="account-form">
+				<h3 class="ui header">
+					<div class="content">Register Now To See If You Match One of Our Buyers</div>
+				</h3>
+				<div class="field">
+					<label>Username</label>
+					<input placeholder="{{username}}" readonly="" type="text"> 
+				</div>
+				<div class="required field">
+					<label>Password</label>
+					<input placeholder="Minimum 8 characters long" type="password" id="password">
+				</div>
+				<div class="required field">
+					<label>Confirm Password</label>
+					<input placeholder="Retype Password" type="password" id="confirm-password">
+				</div>
+				<div class="required field">
+					<label>Ownership Duration</label>
+					<div class="medium {{errorClass 'duration'}} ui buttons" id="duration-buttons">
+						<div class="ui button" id="1" value="duration-low">
+							1-2 years
+						</div>
+						<div class="ui button" id="2" value="duration-medium">
+							3-5 years
+						</div>
+						<div class="ui button" id="3" value="duration-large">
+							6-10 years
+						</div>
+						<div class="ui button" id="4" value="duration-massive">
+							10+ years
+						</div>
+					</div>
+					{{#if isError 'duration'}}
+						<div class="ui left pointing red basic label">
+		      				Please indicate how long you have been at your current residence
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="required field">
+					<label>Interest In Selling</label>
+					<div class="medium {{errorClass 'interest'}} ui buttons" id="interest-buttons">
+						<div class="ui button" id="1" value="interest-high">
+							<em>High</em>- <br>I'll move quickly for the<br> right price
+						</div>
+						<div class="ui button" id="2" value="interest-medium">
+							<em>Medium</em> -<br>I need the right price and<br> flexible timing
+						</div>
+						<div class="ui button" id="3" value="interest-low">
+							<em>Low</em> -<br>I'm open to hearing offers with<br> no obligation to respond
+						</div>
+					</div>
+					{{#if isError 'interest'}}
+						<div class="ui left pointing red basic label">
+		      				Please indicate your interest in selling your home
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="huge ui submit button">SEE MY APPRAISAL</div>
+				<div class="ui error message"></div>
+			</form>
+		</div>
+	</div>
+</template>

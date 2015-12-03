@@ -1,0 +1,39 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.errorRed.buttons .button,
+.ui.errorRed.button {
+  background-color: @redBackground;
+  color: @red;
+  text-shadow: @redTextShadow;
+  background-image: @coloredBackgroundImage;
+}
+.ui.errorRed.button {
+  box-shadow: 0px -@shadowDistance 0px 0px @red inset;;
+}
+.ui.errorRed.buttons .button:hover,
+.ui.errorRed.button:hover {
+  background-color: @lightRed;
+  color: @redTextColor;
+  text-shadow: @redTextShadow;
+}
+.ui.errorRed.buttons .button:focus,
+.ui.errorRed.button:focus {
+  background-color: @lightRed;
+  color: @redTextColor;
+  text-shadow: @redTextShadow;
+}
+.ui.errorRed.buttons .button:active,
+.ui.errorRed.button:active {
+  background-color: @lightRed;
+  color: @redTextColor;
+  text-shadow: @redTextShadow;
+}
+.ui.errorRed.buttons .active.button,
+.ui.errorRed.buttons .active.button:active,
+.ui.errorRed.active.button,
+.ui.errorRed.button .active.button:active {
+  background-color: @lightRed;
+  color: @redTextColor;
+  text-shadow: @redTextShadow;
+}

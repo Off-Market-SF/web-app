@@ -1,0 +1,132 @@
+<template name="sellerHome">
+	<div class="short-page-background">
+		<div class="ui container">
+			<br><br>
+			{{> breadcrumbs}}
+			<br><br>
+			<form class="ui form" id="account-form">
+				<h3 class="ui header">
+					<div class="content">More About Your Home</div>
+					<div class="sub header">YOUR INFORMATION IS PRIVATE</div>
+				</h3>
+				<div class="required field">
+					<label>Bedrooms</label>
+					<div class="small {{errorClass 'bedrooms'}} ui buttons" id="bedroom-buttons">
+						<div class="ui button" id="1">
+							1
+						</div>
+						<div class="ui button" id="2">
+							2
+						</div>
+						<div class="ui button" id="3">
+							3
+						</div>
+						<div class="ui button" id="4">
+							4
+						</div>
+						<div class="ui button" id="5">
+							5+
+						</div>
+					</div>
+					{{#if isError 'bedrooms'}}
+						<div class="ui left pointing red basic label">
+		      				Please choose the number of bedrooms
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="required field">
+					<label>Full Bathrooms</label>
+					<div class="small {{errorClass 'fullBathrooms'}} ui buttons" id="full-bathroom-buttons">
+						<div class="ui button" id="1">
+							1
+						</div>
+						<div class="ui button" id="2">
+							2
+						</div>
+						<div class="ui button" id="3">
+							3
+						</div>
+						<div class="ui button" id="4">
+							4+
+						</div>
+					</div>
+					{{#if isError 'fullBathrooms'}}
+						<div class="ui left pointing red basic label">
+		      				Please choose the number of full bathrooms
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="required field">
+					<label>Half Bathrooms</label>
+					<div class="small {{errorClass 'halfBathrooms'}} ui buttons" id="half-bathroom-buttons">
+						<div class="ui button" id="0">
+							0
+						</div>
+						<div class="ui button" id="1">
+							1
+						</div>
+					</div>
+					{{#if isError 'halfBathrooms'}}
+						<div class="ui left pointing red basic label">
+		      				Please choose the number of half bathrooms
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="required field">
+					<label>Garages</label>
+					<div class="small {{errorClass 'garages'}} ui buttons" id="garage-buttons">
+						<div class="ui button" id="0">
+							0
+						</div>
+						<div class="ui button" id="1">
+							1
+						</div>
+						<div class="ui button" id="2">
+							2
+						</div>
+						<div class="ui button" id="3">
+							3+
+						</div>
+					</div>
+					{{#if isError 'garages'}}
+						<div class="ui left pointing red basic label">
+		      				Please choose the number of garages
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="required two wide field">
+					<label>SqFt</label>
+					<input type="text" id="sqft" placeholder="SQFT">
+				</div>
+				<div class="required field">
+					<label><em>Home Quality</em></label>
+					<div class="small {{errorClass 'quality'}} ui buttons" id="quality-buttons">
+						<div class="ui button" id="1">
+							Recently renovated
+						</div>
+						<div class="ui button" id="2">
+							Renovated last 10 years
+						</div>
+						<div class="ui button" id="3">
+							Well maintained
+						</div>
+						<div class="ui button" id="4">
+							Requires renovation
+						</div>
+					</div>
+					{{#if isError 'quality'}}
+						<div class="ui left pointing red basic label">
+		      				Please select the quality of your home
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="field">
+					<label>Other reasons to love your home</label>
+					<textarea rows="2" id="love-reasons" placeholder="Let buyers know more details about your home (optional)"></textarea>
+				</div>
+				<div class="huge ui submit button">NEXT</div>
+				<div class="ui error message"></div>
+			</form>
+		</div>
+	</div>
+</template>

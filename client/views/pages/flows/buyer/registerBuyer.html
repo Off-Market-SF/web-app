@@ -1,0 +1,119 @@
+<template name="registerBuyer">
+	<div class="ui container">
+	<br><br>
+		<h2 class="ui header">Find Your Dream Home</h2>
+		<p>To ensure that we provide our buyers with highly-personalized attention and service, we limit the number of active buyers we work with.</p>
+		<p>Due to the high demand for our service, we are not presently taking on new buyers.  Please join our list and we’ll contact you as soon as we are able to give you the personalized attention to find your dream home.</p>
+		<div class="ui form" id="buyer-form">
+			<div class="two fields">
+				<div class="required field">
+					<label>First Name</label>
+					<input type="text" id="firstname" placeholder="John">
+				</div>
+				<div class="required field">
+					<label>Last Name</label>
+					<input type="text" id="lastname" placeholder="Doe">
+				</div>
+			</div>
+			<div class="required field">
+				<label>Email Address</label>
+				<input type="text" id="email" placeholder="person@example.com">
+			</div>
+			<div class="field">
+				<label>Phone Number</label>
+				<input type="text" id="phone" placeholder="555-666-7777">
+			</div>
+			<div class="required field" id="locations">
+				<label>Preferred Locations</label>
+				<div class="inline field">
+					<div class="ui multiple selection dropdown {{errorClass 'locations'}}" id="preferred-sf">
+						<input type="hidden" name="sf-location">
+						<i class="dropdown icon"></i>
+						<div class="default text">San Francisco</div>
+						<div class="menu">
+							{{#each suburbsForRegion 'San Francisco'}}
+								<div class="item" data-value="{{getSuburbID}}">{{getSuburbName}}</div>
+							{{/each}}
+						</div>
+					</div>
+
+					
+					<div class="ui multiple selection dropdown {{errorClass 'locations'}}" id="preferred-peninsula">
+						<input type="hidden" name="peninsula-location">
+						<i class="dropdown icon"></i>
+						<div class="default text">Peninsula</div>
+						<div class="menu">
+							{{#each suburbsForRegion 'Peninsula'}}
+								<div class="item" data-value="{{getSuburbID}}">{{getSuburbName}}</div>
+							{{/each}}
+						</div>
+					</div>
+					
+				</div>
+				{{#if isError 'locations'}}
+					<div class="ui pointing red basic label">
+	      				Please select at least one location
+	    			</div>
+	    		{{/if}}
+			</div>
+			<div class="required field">
+				<label>Interest in Buying</label>
+				<div class="medium {{errorClass 'interest'}} ui buttons" id="interest-buttons">
+					<div class="ui button" id="1" value="interest-high">
+						<em>HIGH</em> <br><br> I'll pay top dollar for my dream home
+					</div>
+					<div class="ui button" id="2" value="interest-medium">
+						<em>MEDIUM</em> <br><br> I'll make a competitive offer on the right home
+					</div>
+					<div class="ui button" id="3" value="interest-low">
+						<em>LOW</em> <br><br> I'm hunting for a good deal
+					</div>
+				</div>
+				{{#if isError 'interest'}}
+					<div class="ui left pointing red basic label">
+	      				Please choose your interest level
+	    			</div>
+	    		{{/if}}
+			</div>
+			<div class="required field">
+				<label>Ideal Move-In Date</label>
+				<div class="medium {{errorClass 'movein'}} ui buttons" id="movein-buttons">
+					<div class="ui button" id="1">
+						0-3 <br> Months
+					</div>
+					<div class="ui button" id="2">
+						3-6 <br> Months
+					</div>
+					<div class="ui button" id="3">
+						6-12 <br> Months
+					</div>
+					<div class="ui button" id="4">
+						I'm <br> Flexible
+					</div>
+				</div>
+				{{#if isError 'movein'}}
+					<div class="ui left pointing red basic label">
+	      				Please choose a move-in date
+	    			</div>
+	    		{{/if}}
+			</div>
+			<div class="field">
+				<label>How did you hear about us?</label>
+				<select class="ui dropdown" id="hear-about">
+					<option value="">Referred By</option>
+					<option value="1">Facebook</option>
+					<option value="2">Nextdoor</option>
+					<option value="3">Mailer</option>
+					<option value="4">Friends & Family</option>
+					<option value="5">Newspaper article</option>
+					<option value="6">Blog</option>
+					<option value="7">Other</option>
+				</select>
+			</div>
+			<br><br>
+			<div class="huge ui submit button">FIND MY DREAM HOME</div>
+			<div class="ui error message"></div>
+		</div>
+		<br><br><br><br>
+	</div>
+</template>

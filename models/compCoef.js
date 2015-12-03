@@ -1,0 +1,1 @@
+CompCoefs = new Meteor.Collection("compCoefs");

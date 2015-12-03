@@ -1,0 +1,81 @@
+<template name="sellerRegister">
+	<div class="short-page-background">
+		<div class="ui container">
+			<br><br>
+			{{> breadcrumbs}}
+			<br><br>
+			<div class="ui grid container">
+				<div class="twelve wide column">
+					<form class="ui form" id="register-form">
+						<h3 class="ui header">
+							<div class="content">You and Your Home</div>
+							<div class="sub header">YOUR INFORMATION IS PRIVATE</div>
+						</h3>
+						<div class="required field">
+							<label>Name</label>
+							<div class="two fields">
+								<div class="field">
+									<input type="text" id="firstname" placeholder="First Name">
+								</div>
+								<div class="field">
+									<input type="text" id="lastname" placeholder="Last Name">
+								</div>
+							</div>
+						</div>
+						<div class="required field">
+							<label>Address</label>
+							<input type="text" id="address" placeholder="Address">
+						</div>
+						<div class="two fields">
+							<div class="required field">
+								<label>City</label>
+								<input type="text" id="city" placeholder="City">
+							</div>
+							<div class="required field">
+								<label>State</label>
+								<select class="ui fluid dropdown" id="state">
+								    <option value="">State</option>
+								    <option value="CA">California</option>
+								    <option value="FL">Florida</option>
+								    <option value="NY">New York</option>
+								    <option value="WA">Washington</option>
+						        </select>
+							</div>
+						</div>
+						<div class="required field">
+							<label>Zip</label>
+							<input type="text" id="zip" placeholder="Zip Code">
+						</div>
+						<div class="required field">
+							<label>Email</label>
+							<input type="text" id="email" placeholder="Your email address will be your username">
+						</div>
+						<div class="huge ui submit button">NEXT</div>
+						<div class="ui error message"></div>
+					</form>
+				</div>
+				<div class="four wide column">
+					<div class="ui bulleted list">
+						<div class="ui dividing header">
+							Benefits of Off-Market-SF
+						</div>
+						
+							<div class="item">
+								Get real offers on your home with zero commitment or costs
+							</div>
+							<div class="item">
+								Receive competitive offers from buyers targeting your neighborhood
+							</div>
+							<div class="item">
+								Stay in your home until you get the right price and the right terms
+							</div>
+							<div class="item">
+								Only 1% commission if you choose to sell (save up to 5%)
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

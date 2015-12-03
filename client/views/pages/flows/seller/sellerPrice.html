@@ -1,0 +1,54 @@
+<template name="sellerPrice">
+	<div class="short-page-background">
+		<div class="ui container">
+		<br><br>
+			<form class="ui form" id="price-form">
+				<h2 class="ui header">
+					Off-Market-SF is committed to achieving above comp prices
+				</h2>
+				<div class="field">
+					<h4 class="ui header">For the right price...</h4>
+					<div class="small {{errorClass 'price'}} ui buttons" id="price-buttons">
+						<div class="ui button" id="1">
+							I'll move within<br>60 days
+						</div>
+						<div class="ui button" id="2">
+							I'll move but not until<br>the school year ends
+						</div>
+						<div class="ui button" id="3">
+							I'll move but need<br>at least 6 months
+						</div>
+					</div>
+					{{#if isError 'price'}}
+						<div class="ui left pointing red basic label">
+		      				Please select the quality of your home
+		    			</div>
+		    		{{/if}}
+				</div>
+				<div class="field">
+					<h4 class="ui header">
+						<div class="content">My "Do Not Contact" Price</div>
+						<div class="sub header">WE WILL NOT CONTACT YOU UNTIL WE HAVE A BUYER WILLING TO EXCEED THIS PRICE</div>
+					</h4>
+					<input type="text" placeholder="$" id="not-contact">
+					<span>DON’T WORRY, THIS ISN’T YOUR FINAL SALE PRICE. YOU’LL STILL BE ABLE TO NEGOTIATE YOUR FINAL PRICE ONCE WE’VE MATCHED YOU WITH AN INTERESTED BUYER</span>
+				</div>
+				<h2 class="ui header">{{secondHeader}}</h2>
+				<div class="field">
+					<h4 class="ui header">Email or Phone?</h4>
+					<select class="ui dropdown" id="contact-method">
+						<option value="email">Email</option>
+						<option value="phone">Phone</option>
+					</select>
+				</div>
+				<div class="field">
+					<h4 class="ui header">Best number to call me</h4>
+					<input type="text" id="phone-num" placeholder="xxx-xxx-xxxx">
+				</div>
+				<div class="huge ui submit button">FINISH</div>
+				<div class="ui error message"></div>
+			</form>
+			<br><br>
+		</div>
+	</div>
+</template>
