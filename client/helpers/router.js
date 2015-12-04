@@ -154,7 +154,7 @@ Router.map(function() {
 
   this.route('homeownerAppraisal', {
     path: '/homeownerAppraisal',
-    template: 'sellerAppraisal',
+    template: 'sellerAppraisalt',
     waitOn: function(){
       return [
         Meteor.subscribe('currentHome', Session.get("homeID")),

@@ -4,5 +4,6 @@ Template.registerHelper('isFlows', function() {
 		routeName != 'faqs' &&
 		routeName != 'privacy' &&
 		routeName != 'terms' &&
-		routeName != 'contact';
+		routeName != 'contact' &&
+		routeName != 'howitworks';
 });
