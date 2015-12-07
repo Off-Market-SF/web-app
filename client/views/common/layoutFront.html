@@ -1,3 +1,4 @@
+<!--This defines the main layout for the various application templates-->
 <template name="layoutFront">
   {{#if isFlows}}
   	{{> headerFlows}}
@@ -5,7 +6,9 @@
   	{{> headerFront}}
   {{/if}}
   <div class="main-background">
+  <!--sAlert is a package that allows for the display of various kinds of alerts-->
     {{> sAlert}}
+    <!--'yield' gives the template named by the given route that one is on-->
 	  {{> yield}}
 	  {{#if isFlows}}
 		  {{> footerFlows}}

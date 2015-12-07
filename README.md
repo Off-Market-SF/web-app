@@ -1,73 +1,45 @@
-# Void
+##Usage Notes
+I've commented on many of the pages, and have attempted to comment on areas of code whose structure
+or purpose is not a priori clear.
+The basic structure of the application can be described thusly. The application is run in a client's browser. In the browser, one can navigate to various parts of the application through named Routes.
+Templates are rendered differentially on the basis of what Route is input. Templates consist 
+of two elements: the HTML structure and the JS defined interaction behavior and the contextually 
+defined furnishing of data (thus, for a given page, you will always see the pair of 'template.html'
+and 'template.js' pair). Data is furnished from Collections. The data for collections is stored server side. Data is changed through client-side templates calling server-side Methods. Data is furnished through the server-side code offering Publications to defined portions of stored Collections that can be Subscribed to by individual Templates
 
-A starter boilerplate app template for [Meteor](http://meteor.com) using [IronRouter](https://github.com/EventedMind/iron-router).
-
-Void is based on [Telescope](http://telesc.pe) (an open-source social news app) and is brought to you by the [Discover Meteor](https://www.discovermeteor.com) team. 
-
-## Installation
-
-If you already have Meteor and [Meteorite](https://github.com/oortcloud/meteorite/), Void is ready to go. Just clone it locally, run it with `mrt`, and start coding!
-
-If not, here are the full instructions:
-
-```
-curl https://install.meteor.com | /bin/sh
-npm install -g meteorite
-git clone https://github.com/SachaG/Void.git myApp
-cd myApp
-mrt
-```
-
-## Features
-
-- Client-side routing
-- Publications/subscriptions
-- Basic permissions
-- Common templates
-
-## Principles
-
-Void adopts a modular approach, where code is broken down in different files rather than all kept in one place. It also uses the “template/mapper” pattern, where the `item.html` template has a similarly named `item.js` JavaScript file that holds its helper code.
-
-Void uses the `Items` collection as an example, but you would probably replace this with your own collection name (`Posts`, `Sales`, `Projects`, etc.) and change the file and variables names accordingly. 
+Miscellaneous points
+-Templates are named in their html definition, and that name can be used elsewhere to refer to them
+-In Template html code, you can inject dynamic values via calls to helpers using Spacebars: {{helper}}
+-JQuery (a fundamental 3rd party library) is leveraged throughout the app to manipulate and interact
+ with HTML elements
+ -
 
 ## File Structure
-
+-**.meteor**
+	=>contains configuration code that should not have to be manually edited
 - **client**
-	- **CSS**
+	=>for code made to be run exclusively on the client/browser side.
 	- **helpers**
-		- handlebars.js
-		- router.js
+		=>for code that is to be used throughout the clientside
+		=>like: constants, helper functions with utility through out the client-side
+		=>see in particular router.js - fundamental part of the application
+	- **lib**
+		=> used to store UI style libraries, like Semantic-UI and custom CSS stylesheets
 	- **views**
+		=> contains code for the templates of the application
 		- **common**
-			- footer.html
-			- header.html
-			- layout.html
-			- loading.html
-			- notFound.html
-		- **items**
-			- item.html
-			- item.js
-			- items.html
+			==> used to store headers, footers, layouts, and other templates that are common throughout the app
 		- **pages**
-			- homepage.html
-	- main.html
-	- main.js
-- **collections**
-	- items.js
+			==>used to store the pages of the app
+			-**flows**
+			==>used to store the pages and components of the registration flow
 - **lib**
-	- helpers.js
-	- permissions.js
-- **packages**
-	- iron-router
-	- sample-package
+	=> is used to store code that is used on both the client and server. Includes things like
+	permissions checkers and global helper functions
+- **models**
+	=>contains code that defines the models of the application: their structure and means of interaction (e.g. defined API methods)
 - **public**
+	=>contains the static assets (like pictures) of the application
 - **server**
-	- fixtures.js
-	- publications.js
+	=>contains code that is only run on the server, like publication of collections (data models), security configurations, and seeding the server with data
 
-## Other Boilerplates
-
-- [meteor-boilerplate](https://github.com/matteodem/meteor-boilerplate) by matteodem
-- [meteor-jw-opinionated-skeleton](https://github.com/jamesdwilson/meteor-jw-opinionated-skeleton) by jamesdwilson (CoffeeScript)
-- [meteor-boilerplate](https://github.com/BeDifferential/meteor-boilerplate) by BeDifferential (CoffeeScript)

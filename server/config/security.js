@@ -1,3 +1,5 @@
+//sets basic browser security policies for the application
+
 BrowserPolicy.framing.disallow();
 BrowserPolicy.content.disallowInlineScripts();
 BrowserPolicy.content.disallowEval();

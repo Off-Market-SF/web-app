@@ -1,5 +1,7 @@
-
+//helpers to produce contextually determined values for the breadcrumbs template
 Template.breadcrumbs.helpers({
+	//For a given breadcrumb step, determines based on the current route whether the step 
+	//is active for the purposes of determining whether to have an icon for the step or not
 	isActive: function(step) {
 		var routeName = Router.current().route.name;
 		if(step === 'step1'){
@@ -30,6 +32,8 @@ Template.breadcrumbs.helpers({
 				return true;
 		}
 	},
+
+	//returns the proper display class for a given step based on the current route
 	getStepClass: function(step){
 		var routeName = Router.current().route.name;
 		if(step === 'step1'){

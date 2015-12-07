@@ -1,8 +1,14 @@
+//Interaction and dynamic value assignment code for the main footer
 Template.footerFront.helpers({
 
 });
 
+//These define behaviors that respond to the click events
+//for various menu items
 Template.footerFront.events({
+	//basically: if the html element with the id 'footer-faqs'
+	//is clicked then run a function that suppresses the default click behavior
+	//and the routes the application to the route named 'faqs'
 	'click #footer-faqs': function(e){
 		e.preventDefault();
 		

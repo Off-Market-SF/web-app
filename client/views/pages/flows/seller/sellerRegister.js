@@ -116,7 +116,6 @@ Template.sellerRegister.events({
 			isSeller: true,
 			isHomeowner: isHomeowner
 		};
-		console.log(sellerAttributes);
 		Meteor.call('registerSeller', sellerAttributes, function(error, result){
 			if(error){
 				sAlert.error(error.reason);

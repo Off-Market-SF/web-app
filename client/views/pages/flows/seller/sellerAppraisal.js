@@ -1,3 +1,4 @@
+//a helper function to translated input form values into a named category
 var getCategory = function(value, type){
 	if(type === 'sqft'){
 		sqft = round(value);
@@ -24,21 +25,18 @@ var getCategory = function(value, type){
 
 
 Template.sellerAppraisal.helpers({
+	//returns the lowAppraisal value
 	lowAppraisal: function(averagePrice){
-		console.log(this);
 		var sqFtCategory = getCategory(this.sqft, 'sqft');
-		console.log(sqFtCategory);
 		var qualityCategory = getCategory(this.quality, 'quality');
-		console.log(qualityCategory);
 		var sqftCoef = CompCoefs.findOne({name: 'sqft', category: sqFtCategory});
-		console.log(sqftCoef);
 		var qualityCoef = CompCoefs.findOne({name: 'quality', category: qualityCategory});
-		console.log(qualityCoef);
 		if(sqftCoef.value < qualityCoef.value)
 			return ('$' + round(sqftCoef.value * round(this.sqft) * averagePrice)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		else
 			return ('$' + round(qualityCoef.value * round(this.sqft) * averagePrice)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
+	//returns the highAppraisal value
 	highAppraisal: function(averagePrice) {
 		var sqFtCategory = getCategory(this.sqft, 'sqft');
 		var qualityCategory = getCategory(this.quality, 'quality');
@@ -49,20 +47,25 @@ Template.sellerAppraisal.helpers({
 		else
 			return ('$' + round(qualityCoef.value * round(this.sqft) * averagePrice)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	},
+	//returns the average $/sqft
 	averagePrice: function() {
 		var homeComps = HomeComps.find({compGroup: this.compGroup}, {limit: 4}).fetch();
+		//sums the sqft price
 		var sumSqFtPrice = _.reduce(homeComps, function(memo, homeComp){
 			var num = round(homeComp.sqFtPrice);
 			return memo + num;
 		}, 0);
 	return round(sumSqFtPrice / 4);
 	},
+	//returns the top four home comps for a given compGroup
 	homeComps: function() {
 		return HomeComps.find({compGroup: this.compGroup}, {limit: 4}).fetch();
 	}
 });
 
 Template.sellerAppraisal.events({
+	//click events that route differentially based on whether the individual
+	//has identified as a seller or homeowner
 	'click #tell-me-more': function(){
 		var routeName = Router.current().route.name;
 		if(routeName === 'sellerAppraisal')

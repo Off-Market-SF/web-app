@@ -2,7 +2,7 @@
 
 ## Handlebars Helpers ##
 
-Custom Handlebars helpers.
+Custom Handlebars helpers. For global application across files
 
 /+ ---------------------------------------------------- */
 

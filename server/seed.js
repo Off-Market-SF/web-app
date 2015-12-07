@@ -2,7 +2,7 @@
 
 ## Fixtures ##
 
-Fill in the app with dummy data if database is empty.
+Fills in the app with dummy data if database is empty.
 
 /+ ---------------------------------------------------- */
 

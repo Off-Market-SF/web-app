@@ -1,4 +1,6 @@
 // create new local collections for messages
+
+//is this a necessary file?
 Messages = new Meteor.Collection(null);
 
 flash = function (message, messageType) {

@@ -1,3 +1,4 @@
+<!--Template for the buyer registration form-->
 <template name="registerBuyer">
 	<div class="ui container">
 	<br><br>
@@ -26,11 +27,16 @@
 			<div class="required field" id="locations">
 				<label>Preferred Locations</label>
 				<div class="inline field">
+				<!--the {{errorClass ...}} is a helper that returns a class that is styled for 
+				error display based on whether errors are set for the given element-->
 					<div class="ui multiple selection dropdown {{errorClass 'locations'}}" id="preferred-sf">
 						<input type="hidden" name="sf-location">
 						<i class="dropdown icon"></i>
 						<div class="default text">San Francisco</div>
 						<div class="menu">
+						<!--the {{#each...}} allows one to define templating for a
+						variable number of comparable items ==> in this case, to display each
+						suburb fetched in a dropdown list-->
 							{{#each suburbsForRegion 'San Francisco'}}
 								<div class="item" data-value="{{getSuburbID}}">{{getSuburbName}}</div>
 							{{/each}}
@@ -50,6 +56,7 @@
 					</div>
 					
 				</div>
+				<!--Adds an element to indicate an error if there is one-->
 				{{#if isError 'locations'}}
 					<div class="ui pointing red basic label">
 	      				Please select at least one location
